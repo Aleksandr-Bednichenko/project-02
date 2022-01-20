@@ -4,4 +4,17 @@
  */
 
 // Стили для файла с примером HTML-фрагмента
-@import './example';
+
+@import './header.scss';
+@import './films-gallery.scss';
+@import './films-pages.scss';
+@import './footer.scss';
+@import './container.scss';
+@import './base-style';
+@import './utils';
+@import './paginations';
+@import './modal';
+@import './teamModal';
+@import './up-button';
+@import './toolbar';
+@import './modalSign.scss';

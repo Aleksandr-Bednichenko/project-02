@@ -3,19 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заголовок страницы</title>
+    <title>Фильмотека</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="652903089300-5nm21r05qgn7fotcjljaos51opnq4cpq.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
-  <body>
+  <body data-body>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log('ID Token: ' + id_token);
+      }
+    </script>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <include src="./partials/example.html"></include>
+
+    <include src="./partials/header.html"></include>
+    <include src="./partials/modal.html"></include>
+    <include src="./partials/films-gallery.html"></include>
+    <include src="./partials/pagination.html"></include>
+    <include src="./partials/footer.html"></include>
+    <include src="./partials/teamDeveloperModal.html"></include>
+    <include src="./partials/modalSign.html"></include>
+
+    <button id="myBtn" title="Go to top" class="slide-in-blurred-top">
+      <svg class="up-svg">
+        <use href="./images/InlineSprite.svg#src-1" class="up-icon"></use>
+      </svg>
+    </button>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
+    <!-- <script src="./JS/apiServicePop.js"></script> -->
   </body>
 </html>
